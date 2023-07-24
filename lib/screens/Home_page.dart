@@ -184,49 +184,51 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
-                child: Stack(
-                  alignment: Alignment.centerLeft,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 200),
-                      child: SvgPicture.asset(
-                        "assets/img.svg",
-                        width: 120,
-                        height: 120,
-                      ),
-                    ),
-                    BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Stack(
+                        alignment: Alignment.topLeft,
                         children: [
-                          Text(
-                            content,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 32,
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
                           Container(
-                            padding: const EdgeInsets.all(30),
+                            child: SvgPicture.asset(
+                              "assets/img.svg",
+                              width: 120,
+                              height: 120,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(8, 24, 0, 0),
                             child: Text(
-                              author,
-                              style: TextStyle(
-                                backgroundColor: Colors.green[700],
+                              content,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 32,
-                                color: Colors.green[200],
+                                color: Colors.black,
                               ),
                               textAlign: TextAlign.center,
                             ),
-                          ),
+                          )
                         ],
                       ),
-                    ),
-                  ],
+                      Container(
+                        padding: const EdgeInsets.all(30),
+                        child: Text(
+                          author,
+                          style: TextStyle(
+                            backgroundColor: Colors.green[700],
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.green[200],
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
